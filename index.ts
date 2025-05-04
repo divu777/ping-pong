@@ -30,3 +30,11 @@ const pingServers = async () => {
 setInterval(pingServers, 10 * 60 * 1000);
 
 pingServers();
+
+
+Bun.serve({
+    port: process.env.PORT || 3000,
+    fetch() {
+      return new Response("Keep-alive ping service running.");
+    },
+  });
