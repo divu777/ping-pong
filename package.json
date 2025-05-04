@@ -1,18 +1,28 @@
 {
   "name": "ping-pong",
-  "module": "index.ts",
-  "type": "module",
-  "private": true,
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
-  "dependencies": {
-    "axios": "^1.9.0"
-  },
+  "version": "1.0.0",
+  "description": "To install dependencies:",
+  "main": "index.js",
   "scripts": {
-    "start": "bun index.ts"
+    "start": "node index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/divu777/ping-pong.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/divu777/ping-pong/issues"
+  },
+  "homepage": "https://github.com/divu777/ping-pong#readme",
+  "dependencies": {
+    "axios": "^1.9.0",
+    "dotenv": "^16.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3"
   }
 }

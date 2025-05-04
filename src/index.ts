@@ -1,4 +1,8 @@
-import axios from "axios";
+import http from 'http';
+import axios from 'axios';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const GlobalBackend = [
     {
@@ -27,14 +31,18 @@ const pingServers = async () => {
     }
 };
 
+// Call immediately and schedule every 10 minutes
+pingServers();
 setInterval(pingServers, 10 * 60 * 1000);
 
-pingServers();
+// Minimal HTTP server to show keep-alive
+const PORT = process.env.PORT || 3000;
 
+const server = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Keep-alive ping service running.');
+});
 
-Bun.serve({
-    port: process.env.PORT || 3000,
-    fetch() {
-      return new Response("Keep-alive ping service running.");
-    },
-  });
+server.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
