@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: bun
+    runtime: docker
+    repo: https://github.com/divu777/ping-pong
+    plan: starter
+    autoDeploy: false
